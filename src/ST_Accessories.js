@@ -154,6 +154,7 @@ module.exports = class ST_Accessories {
         let b = false;
         let d2;
         let o = {};
+        console.log("cmd: " + cmd);
         switch (cmd) {
             case "setLevel":
             case "setVolume":
@@ -187,7 +188,7 @@ module.exports = class ST_Accessories {
                 acc.commandTimers[id].cancel();
                 acc.commandTimers[id] = null;
                 // console.log('lastTS: ', lastTS, ' | now:', tsNow, ' | last: ', acc.commandTimersTS[id]);
-                // console.log(`Existing Command Found | Command: ${cmd} | Vals: ${vals} | Executing in (${d}ms) | Last Cmd: (${lastTS ? (lastTS/1000).toFixed(1) : "unknown"}sec) | Id: ${id} `);
+                console.log(`Existing Command Found | Command: ${cmd} | Vals: ${vals} | Executing in (${d}ms) | Last Cmd: (${lastTS ? (lastTS/1000).toFixed(1) : "unknown"}sec) | Id: ${id} `);
                 if (lastTS && lastTS < d) {
                     d = d2 || 0;
                 }

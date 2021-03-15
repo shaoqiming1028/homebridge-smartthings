@@ -182,7 +182,7 @@ module.exports = class ST_Accessories {
             appEvts.emit("event:device_command", dev, cmd, vals);
         } else {
             let lastTS = acc.commandTimersTS[id] && tsNow ? tsNow - acc.commandTimersTS[id] : undefined;
-            // console.log("lastTS: " + lastTS, ' | ts:', acc.commandTimersTS[id]);
+            console.log("lastTS: " + lastTS, ' | ts:', acc.commandTimersTS[id]);
             if (acc.commandTimers[id] && acc.commandTimers[id] !== null) {
                 acc.commandTimers[id].cancel();
                 acc.commandTimers[id] = null;

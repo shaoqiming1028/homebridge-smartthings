@@ -154,8 +154,12 @@ module.exports = class ST_Accessories {
         let b = false;
         let d2;
         let o = {};
-        console.log("cmd: " + cmd);
+        //console.log("cmd: " + cmd);
         switch (cmd) {
+            case "on":
+                if(this.getCapabilities().includes("Switch Level")){
+                        cmd.replace("on","setLevel");
+                }
             case "setLevel":
             case "setVolume":
             case "setFanSpeed":
@@ -178,7 +182,7 @@ module.exports = class ST_Accessories {
                 b = true;
                 break;
         }
-
+        console.log("cmd: " + cmd);
         if (b) {
             appEvts.emit("event:device_command", dev, cmd, vals);
         } else {
